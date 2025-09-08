@@ -12,7 +12,7 @@ export const PortfolioChart = () => {
     datasets: [
       {
         label: '$',
-        data: assets.map(asset => asset.amount),
+        data: assets.map(asset => asset.totalAmount),
         backgroundColor: [
           'rgba(255, 99, 132, 1)',
           'rgba(54, 162, 235, 1)',
