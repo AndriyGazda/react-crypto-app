@@ -1,7 +1,22 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+// const express = require('express');
+// const app = express();
+// const port = 3000;
+//
+// app.use(express.static('frontend/dist'));
+//
+// app.listen(port, () => console.log(`Server is running at http://localhost:${port}`));
 
-app.use(express.static('frontend/dist'));
+const express = require('express');
+const path = require('path');
+const app = express();
+const port = process.env.PORT || 3000;
+
+// Віддаємо статичні файли
+app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
+
+// Catch-all для React Router
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
+});
 
 app.listen(port, () => console.log(`Server is running at http://localhost:${port}`));
