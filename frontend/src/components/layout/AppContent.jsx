@@ -1,7 +1,8 @@
 import { Layout, Typography } from 'antd';
-import { useCrypto } from '../../context/crypto-context.jsx';
+// import { useCrypto } from '../../context/crypto-context.jsx';
 import { PortfolioChart } from '../PortfolioChart.jsx';
 import { AssetsTable } from '../AssetsTable.jsx';
+import {useAssets, useCrypto} from "../../store/useStore.js";
 
 const contentStyle = {
   textAlign: 'center',
@@ -12,7 +13,9 @@ const contentStyle = {
 };
 
 const AppContent = () => {
-  const { assets, crypto } = useCrypto();
+  // const { assets, crypto } = useCrypto();
+  const assets = useAssets();
+  const crypto = useCrypto();
 
   const cryptoPriceMap = crypto.reduce((acc, coin) => {
     acc[coin.id] = coin.price;

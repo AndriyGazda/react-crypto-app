@@ -1,11 +1,13 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
-import { useCrypto } from '../context/crypto-context.jsx';
+import {useAssets} from "../store/useStore.js";
+// import { useCrypto } from '../context/crypto-context.jsx';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const PortfolioChart = () => {
-  const { crypto, assets } = useCrypto();
+  // const { crypto, assets } = useCrypto();
+  const assets = useAssets()
 
   const data = {
     labels: assets.map(asset => asset.name),

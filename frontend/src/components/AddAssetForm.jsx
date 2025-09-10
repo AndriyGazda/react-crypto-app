@@ -8,7 +8,9 @@ import {
   Select,
   Space
 } from 'antd';
-import { useCrypto } from '../context/crypto-context.jsx';
+// import { useCrypto } from '../context/crypto-context.jsx';
+import {useAddAsset, useCrypto} from "../store/useStore.js";
+
 import { useRef, useState } from 'react';
 import { CoinInfo } from './CoinInfo.jsx';
 
@@ -23,8 +25,11 @@ const validateMessages = {
 };
 
 export const AddAssetForm = ({ onClose }) => {
+  // const { crypto, addAsset } = useCrypto();
+  const crypto = useCrypto();
+  const addAsset = useAddAsset();
+
   const [form] = Form.useForm();
-  const { crypto, addAsset } = useCrypto();
   const [coin, setCoin] = useState(null);
   const [submitted, setSubmitted] = useState(false);
   const assetRef = useRef();

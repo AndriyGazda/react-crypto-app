@@ -1,5 +1,8 @@
 import { Table } from 'antd';
-import { useCrypto } from '../context/crypto-context.jsx';
+import {useAssets} from "../store/useStore.js";
+// import { useCrypto } from '../context/crypto-context.jsx';
+
+
 const columns = [
   {
     title: 'Name',
@@ -23,9 +26,10 @@ const columns = [
 ];
 
 export const AssetsTable = () => {
-  const { assets } = useCrypto();
+  // const { assets } = useCrypto();
+  const assets = useAssets();
 
-  const data = assets.map((asset, index) => ({
+  const data = assets.map((asset) => ({
     key: asset.id,
     name: asset.name,
     price: asset.price,

@@ -1,8 +1,9 @@
 import { Button, Drawer, Layout, Modal, Select, Space } from 'antd';
-import { useCrypto } from '../../context/crypto-context.jsx';
+// import { useCrypto } from '../../context/crypto-context.jsx';
 import { useEffect, useState } from 'react';
 import { CoinInfoModal } from '../CoinInfoModal.jsx';
 import { AddAssetForm } from '../AddAssetForm.jsx';
+import {useCrypto} from "../../store/useStore.js";
 
 const headerStyle = {
   width: '100%',
@@ -19,7 +20,9 @@ const AppHeader = () => {
   const [coin, setCoin] = useState(null);
   const [modal, setModal] = useState(false);
   const [drawer, setDrawer] = useState(false);
-  const { crypto } = useCrypto();
+
+  // const { crypto } = useCrypto();
+  const crypto = useCrypto();
 
   useEffect(() => {
     const keypress = event => {

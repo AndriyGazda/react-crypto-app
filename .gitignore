@@ -28,5 +28,8 @@ dist-ssr
 *.sln
 *.sw?
 
+# Vite cache
+.vite/
+
 # Ignore node_modules in any subfolder (frontend already в підпапках)
 frontend/node_modules
